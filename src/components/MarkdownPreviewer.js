@@ -1,7 +1,11 @@
 import { useState } from 'react';
-import marked from 'marked';
+import styled from 'styled-components';
 import Editor from './Editor';
 import Previewer from './Previewer';
+
+const MarkdownPreview = styled.div`
+  display: flex;
+`;
 
 const MarkdownPreviewer = () => {
   const [markdown, setMarkdown] = useState('');
@@ -11,11 +15,13 @@ const MarkdownPreviewer = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>Markdown Previewer</h1>
-      <Editor action={onChange} value={markdown} />
-      <Previewer markdown={markdown} />
-    </div>
+      <MarkdownPreview>
+        <Editor action={onChange} value={markdown} />
+        <Previewer markdown={markdown} />
+      </MarkdownPreview>
+    </>
   );
 };
 
