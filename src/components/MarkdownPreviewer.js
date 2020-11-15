@@ -15,13 +15,12 @@ const MarkdownPreviewer = () => {
   };
 
   return (
-    <>
-      <h1>Markdown Previewer</h1>
+    <div>
       <MarkdownPreview>
         <Editor action={onChange} value={markdown} />
         <Previewer markdown={markdown} />
       </MarkdownPreview>
-    </>
+    </div>
   );
 };
 

@@ -49,11 +49,30 @@ And here. | Okay. | I think we get it.
 
 const EditorBox = styled.div`
   display: ${(props) => props.display || 'block'};
-  width: 100%;
+  margin-left: 2em;
+  min-width: 570px;
+  width: 600px;
+
+  box-sizing: border-box;
+`;
+
+const TitleBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: 1.5em;
+  background: #f0f0f0;
+  border: 1px solid #000;
+  border-bottom: none;
 `;
 
 const TextArea = styled.textarea`
-  width: 100%;
+  outline: none;
+  resize: vertical;
+  min-height: 30%;
+  width: 99%;
+  background: #000;
+  color: #fff;
+  border-top: none;
 `;
 
 const Editor = ({ action, value }) => {
@@ -64,7 +83,12 @@ const Editor = ({ action, value }) => {
 
   return (
     <EditorBox>
-      <h2>editor</h2>
+      <TitleBar>
+        <h2 style={{ margin: 0, padding: 0 }}>editor</h2>
+        <button>
+          <i class="fas fa-expand-arrows-alt"></i>
+        </button>
+      </TitleBar>
       <TextArea
         value={value ? value : placeholder}
         onChange={(e) => action(e.target.value)}

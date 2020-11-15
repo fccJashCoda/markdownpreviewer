@@ -1,12 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 import MarkdownPreviewer from './components/MarkdownPreviewer';
+import styled from 'styled-components';
+
+const Application = styled.div`
+  background: #00a2ed;
+  padding-top: 1em;
+`;
 
 function App() {
   return (
-    <div className="App">
+    <Application className="App">
+      <div>
+        <h1>Markdown Previewer</h1>
+      </div>
       <MarkdownPreviewer />
-    </div>
+    </Application>
   );
 }
 

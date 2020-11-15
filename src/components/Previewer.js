@@ -1,11 +1,7 @@
 import marked from 'marked';
 
 const Previewer = ({ markdown }) => {
-  // console.log(marked.Renderer);
-  const handleMarkdown = () => {
-    return { __html: marked(markdown) };
-  };
-  return <div dangerouslySetInnerHTML={handleMarkdown()} />;
+  return <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} />;
 };
 
 export default Previewer;
