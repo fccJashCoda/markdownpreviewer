@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import TitleBar from './TitleBar';
 
 const PreviewerBox = styled.div`
-  display: ${(props) => props.display || 'block'}
+  display: ${(props) => (props.display ? 'none' : 'block')};
   // margin-right: 2em;
   width: 800px;
   align-self: center;
@@ -22,10 +22,19 @@ const ContentBox = styled.div`
   padding: 0.5em;
 `;
 
-const Previewer = ({ markdown }) => {
+const Previewer = ({ markdown, status, statusHandler }) => {
+  const modifyStatus = () => {
+    statusHandler({
+      ...status,
+      previewerHighlighted: !status.previewerHighlighted,
+    });
+  };
+
+  console.log('preview editorhighlighted', status.editorHighlighted);
+
   return (
-    <PreviewerBox>
-      <TitleBar title={'Previewer'} />
+    <PreviewerBox display={status.editorHighlighted}>
+      <TitleBar title={'Previewer'} action={modifyStatus} />
       <ContentBox dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
     </PreviewerBox>
   );

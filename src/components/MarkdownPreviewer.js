@@ -17,16 +17,40 @@ const MarkdownPreview = styled.div`
 
 const MarkdownPreviewer = () => {
   const [markdown, setMarkdown] = useState('');
+  const [applicationState, setApplicationState] = useState({
+    editorHighlighted: false,
+    previewerHighlighted: false,
+    color: 'green',
+  });
 
   const onChange = (input) => {
     setMarkdown(input);
   };
 
+  const handleApplicationState = (obj) => {
+    setApplicationState({
+      ...applicationState,
+      ...obj,
+    });
+  };
+
+  console.log('editor state', applicationState);
   return (
     <div>
       <MarkdownPreview>
-        <Editor display={'none'} action={onChange} value={markdown} />
-        <Previewer markdown={markdown} />
+        <Editor
+          action={onChange}
+          value={markdown}
+          status={applicationState}
+          statusHandler={handleApplicationState}
+          color={true}
+          display="none"
+        />
+        <Previewer
+          markdown={markdown}
+          status={applicationState}
+          statusHandler={handleApplicationState}
+        />
       </MarkdownPreview>
     </div>
   );

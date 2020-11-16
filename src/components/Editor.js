@@ -49,7 +49,7 @@ And here. | Okay. | I think we get it.
 `;
 
 const EditorBox = styled.div`
-  display: ${(props) => (props.display ? props.display : 'block')};
+  display: ${(props) => (props.display ? 'none' : 'block')};
   // margin-left: 2em;
   min-width: 570px;
   width: 600px;
@@ -72,16 +72,24 @@ const TextArea = styled.textarea`
   border-top: none;
 `;
 
-const Editor = ({ action, value, display }) => {
+const Editor = ({ action, value, statusHandler, status }) => {
   useEffect(() => {
     const data = value ? value : placeholder;
     action(data);
   }, []);
 
-  console.log(display);
+  const modifyStatus = () => {
+    statusHandler({
+      ...status,
+      editorHighlighted: !status.editorHighlighted,
+    });
+  };
+
+  console.log('editor previewerhighlighted', status.previewerHighlighted);
+
   return (
-    <EditorBox>
-      <TitleBar title={'Editor'} />
+    <EditorBox display={status.previewerHighlighted}>
+      <TitleBar title={'Editor'} action={modifyStatus} />
       <TextArea
         value={value ? value : placeholder}
         onChange={(e) => action(e.target.value)}

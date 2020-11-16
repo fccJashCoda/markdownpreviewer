@@ -20,13 +20,13 @@ const Button = styled.button`
   margin-right: 0.5em;
 `;
 
-const TitleBar = ({ title }) => {
+const TitleBar = ({ title, action }) => {
   return (
     <TitleBarStyle>
       <Title>
         <i class="fab fa-free-code-camp"></i> {title}
       </Title>
-      <Button>
+      <Button onClick={() => action()}>
         <i class="fas fa-expand-arrows-alt"></i>
       </Button>
     </TitleBarStyle>
