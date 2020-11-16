@@ -23,7 +23,9 @@ const Button = styled.button`
 const TitleBar = ({ title }) => {
   return (
     <TitleBarStyle>
-      <Title>{title}</Title>
+      <Title>
+        <i class="fab fa-free-code-camp"></i> {title}
+      </Title>
       <Button>
         <i class="fas fa-expand-arrows-alt"></i>
       </Button>

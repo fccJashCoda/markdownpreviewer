@@ -49,13 +49,17 @@ And here. | Okay. | I think we get it.
 `;
 
 const EditorBox = styled.div`
-  display: ${(props) => props.display || 'block'};
+  display: ${(props) => (props.display ? props.display : 'block')};
   // margin-left: 2em;
   min-width: 570px;
   width: 600px;
   min-height: 400px;
   align-self: center;
   box-sizing: border-box;
+  @media (max-width: 700px) {
+    min-width: 90%;
+    width: auto;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -68,12 +72,13 @@ const TextArea = styled.textarea`
   border-top: none;
 `;
 
-const Editor = ({ action, value }) => {
+const Editor = ({ action, value, display }) => {
   useEffect(() => {
     const data = value ? value : placeholder;
     action(data);
   }, []);
 
+  console.log(display);
   return (
     <EditorBox>
       <TitleBar title={'Editor'} />

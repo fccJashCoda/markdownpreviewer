@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 const Application = styled.div`
   background: #00a2ed;
-  padding-top: 1em;
 `;
 
 function App() {
