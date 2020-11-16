@@ -2,6 +2,11 @@ import marked from 'marked';
 import styled from 'styled-components';
 import TitleBar from './TitleBar';
 
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  breaks: true,
+});
+
 const PreviewerBox = styled.div`
   display: ${(props) => (props.display ? 'none' : 'block')};
   // margin-right: 2em;
@@ -34,7 +39,11 @@ const Previewer = ({ markdown, status, statusHandler }) => {
 
   return (
     <PreviewerBox display={status.editorHighlighted}>
-      <TitleBar title={'Previewer'} action={modifyStatus} />
+      <TitleBar
+        title={'Previewer'}
+        action={modifyStatus}
+        display={status.previewerHighlighted}
+      />
       <ContentBox dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
     </PreviewerBox>
   );

@@ -89,7 +89,11 @@ const Editor = ({ action, value, statusHandler, status }) => {
 
   return (
     <EditorBox display={status.previewerHighlighted}>
-      <TitleBar title={'Editor'} action={modifyStatus} />
+      <TitleBar
+        title={'Editor'}
+        action={modifyStatus}
+        display={status.editorHighlighted}
+      />
       <TextArea
         value={value ? value : placeholder}
         onChange={(e) => action(e.target.value)}

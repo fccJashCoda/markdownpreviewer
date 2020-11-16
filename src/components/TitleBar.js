@@ -20,14 +20,19 @@ const Button = styled.button`
   margin-right: 0.5em;
 `;
 
-const TitleBar = ({ title, action }) => {
+const TitleBar = ({ title, action, display }) => {
+  console.log('button display', display);
   return (
     <TitleBarStyle>
       <Title>
         <i class="fab fa-free-code-camp"></i> {title}
       </Title>
       <Button onClick={() => action()}>
-        <i class="fas fa-expand-arrows-alt"></i>
+        {display ? (
+          <i class="fas fa-expand-alt"></i>
+        ) : (
+          <i class="fas fa-expand-arrows-alt"></i>
+        )}
       </Button>
     </TitleBarStyle>
   );
