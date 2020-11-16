@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import TitleBar from './TitleBar';
 
 const placeholder = `
 # Welcome to my React Markdown Previewer!
@@ -49,26 +50,18 @@ And here. | Okay. | I think we get it.
 
 const EditorBox = styled.div`
   display: ${(props) => props.display || 'block'};
-  margin-left: 2em;
+  // margin-left: 2em;
   min-width: 570px;
   width: 600px;
-
+  min-height: 400px;
+  align-self: center;
   box-sizing: border-box;
-`;
-
-const TitleBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  height: 1.5em;
-  background: #f0f0f0;
-  border: 1px solid #000;
-  border-bottom: none;
 `;
 
 const TextArea = styled.textarea`
   outline: none;
   resize: vertical;
-  min-height: 30%;
+  min-height: 250px;
   width: 99%;
   background: #000;
   color: #fff;
@@ -83,12 +76,7 @@ const Editor = ({ action, value }) => {
 
   return (
     <EditorBox>
-      <TitleBar>
-        <h2 style={{ margin: 0, padding: 0 }}>editor</h2>
-        <button>
-          <i class="fas fa-expand-arrows-alt"></i>
-        </button>
-      </TitleBar>
+      <TitleBar title={'Editor'} />
       <TextArea
         value={value ? value : placeholder}
         onChange={(e) => action(e.target.value)}

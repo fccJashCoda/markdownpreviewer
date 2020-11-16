@@ -11,9 +11,6 @@ const Application = styled.div`
 function App() {
   return (
     <Application className="App">
-      <div>
-        <h1>Markdown Previewer</h1>
-      </div>
       <MarkdownPreviewer />
     </Application>
   );

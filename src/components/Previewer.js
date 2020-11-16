@@ -1,7 +1,26 @@
 import marked from 'marked';
+import styled from 'styled-components';
+import TitleBar from './TitleBar';
+
+const PreviewerBox = styled.div`
+  // margin-right: 2em;
+  width: 800px;
+`;
+
+const ContentBox = styled.div`
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 0.5em;
+`;
 
 const Previewer = ({ markdown }) => {
-  return <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} />;
+  return (
+    <PreviewerBox>
+      <TitleBar title={'Previewer'} />
+      <ContentBox dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+    </PreviewerBox>
+  );
 };
 
 export default Previewer;

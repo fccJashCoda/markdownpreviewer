@@ -5,6 +5,7 @@ import Previewer from './Previewer';
 
 const MarkdownPreview = styled.div`
   display: flex;
+  justify-content: space-around;
 `;
 
 const MarkdownPreviewer = () => {
