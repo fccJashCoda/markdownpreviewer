@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import TitleBar from './TitleBar';
 
 const placeholder = `
 # Welcome to my React Markdown Previewer!
@@ -72,26 +71,15 @@ const TextArea = styled.textarea`
   border-top: none;
 `;
 
-const Editor = ({ action, value, statusHandler, status }) => {
+const Editor = ({ action, value, status, titlebar }) => {
   useEffect(() => {
     const data = value ? value : placeholder;
     action(data);
   }, []);
 
-  const modifyStatus = () => {
-    statusHandler({
-      ...status,
-      editorHighlighted: !status.editorHighlighted,
-    });
-  };
-
   return (
     <EditorBox display={status.previewerHighlighted}>
-      <TitleBar
-        title={'Editor'}
-        action={modifyStatus}
-        display={status.editorHighlighted}
-      />
+      {titlebar}
       <TextArea
         value={value ? value : placeholder}
         onChange={(e) => action(e.target.value)}

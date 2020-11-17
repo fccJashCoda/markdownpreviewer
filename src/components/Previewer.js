@@ -1,6 +1,5 @@
 import marked from 'marked';
 import styled from 'styled-components';
-import TitleBar from './TitleBar';
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -22,26 +21,17 @@ const PreviewerBox = styled.div`
 
 const ContentBox = styled.div`
   background: #fff;
+  background: #333;
   border: 1px solid #ccc;
   border-top: none;
   padding: 0.5em;
+  color: #fff;
 `;
 
-const Previewer = ({ markdown, status, statusHandler }) => {
-  const modifyStatus = () => {
-    statusHandler({
-      ...status,
-      previewerHighlighted: !status.previewerHighlighted,
-    });
-  };
-
+const Previewer = ({ markdown, status, titlebar }) => {
   return (
     <PreviewerBox display={status.editorHighlighted}>
-      <TitleBar
-        title={'Previewer'}
-        action={modifyStatus}
-        display={status.previewerHighlighted}
-      />
+      {titlebar}
       <ContentBox dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
     </PreviewerBox>
   );

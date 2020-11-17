@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Editor from './Editor';
 import Previewer from './Previewer';
+import TitleBar from './TitleBar';
 
 const MarkdownPreview = styled.div`
   display: flex;
@@ -23,15 +24,34 @@ const MarkdownPreviewer = () => {
     color: 'green',
   });
 
+  const EditorTitleBar = (
+    <TitleBar
+      title={'Editor'}
+      action={() =>
+        setApplicationState({
+          ...applicationState,
+          editorHighlighted: !applicationState.editorHighlighted,
+        })
+      }
+      display={applicationState.editorHighlighted}
+    />
+  );
+
+  const PreviewerTitleBar = (
+    <TitleBar
+      title={'Previewer'}
+      action={() =>
+        setApplicationState({
+          ...applicationState,
+          previewerHighlighted: !applicationState.previewerHighlighted,
+        })
+      }
+      display={applicationState.previewerHighlighted}
+    />
+  );
+
   const onChange = (input) => {
     setMarkdown(input);
-  };
-
-  const handleApplicationState = (obj) => {
-    setApplicationState({
-      ...applicationState,
-      ...obj,
-    });
   };
 
   return (
@@ -41,14 +61,14 @@ const MarkdownPreviewer = () => {
           action={onChange}
           value={markdown}
           status={applicationState}
-          statusHandler={handleApplicationState}
           color={true}
           display="none"
+          titlebar={EditorTitleBar}
         />
         <Previewer
           markdown={markdown}
           status={applicationState}
-          statusHandler={handleApplicationState}
+          titlebar={PreviewerTitleBar}
         />
       </MarkdownPreview>
     </div>
