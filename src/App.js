@@ -5,7 +5,8 @@ import styled from 'styled-components';
 
 const Application = styled.div`
   background: #00a2ed;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
 `;
 
 function App() {

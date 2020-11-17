@@ -35,8 +35,6 @@ const Previewer = ({ markdown, status, statusHandler }) => {
     });
   };
 
-  console.log('preview editorhighlighted', status.editorHighlighted);
-
   return (
     <PreviewerBox display={status.editorHighlighted}>
       <TitleBar

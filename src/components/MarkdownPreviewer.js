@@ -34,7 +34,6 @@ const MarkdownPreviewer = () => {
     });
   };
 
-  console.log('editor state', applicationState);
   return (
     <div>
       <MarkdownPreview>

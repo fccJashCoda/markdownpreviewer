@@ -85,8 +85,6 @@ const Editor = ({ action, value, statusHandler, status }) => {
     });
   };
 
-  console.log('editor previewerhighlighted', status.previewerHighlighted);
-
   return (
     <EditorBox display={status.previewerHighlighted}>
       <TitleBar
