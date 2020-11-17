@@ -4,9 +4,9 @@ import MarkdownPreviewer from './components/MarkdownPreviewer';
 import styled from 'styled-components';
 
 const Application = styled.div`
-  background: #00a2ed;
-  // height: 100vh;
-  height: 100%;
+  background: #1b1b32;
+  height: 100vh;
+  // height: 100%;
 `;
 
 function App() {

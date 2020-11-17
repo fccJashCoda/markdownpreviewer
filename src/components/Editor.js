@@ -44,18 +44,17 @@ And here. | Okay. | I think we get it.
 1. Use just 1s if you want!
 1. And last but not least, let's not forget embedded images:
 
-![React Logo w/ Text](https://goo.gl/Umyytc)
+![FreeCodeCamp Logo](https://en.wikipedia.org/wiki/FreeCodeCamp#/media/File:FreeCodeCamp_logo.png)
 `;
 
 const EditorBox = styled.div`
   display: ${(props) => (props.display ? 'none' : 'block')};
-  // margin-left: 2em;
   min-width: 570px;
   width: 600px;
-  min-height: 400px;
   align-self: center;
   box-sizing: border-box;
   @media (max-width: 700px) {
+    margin-top: 0;
     min-width: 90%;
     width: auto;
   }
@@ -83,6 +82,7 @@ const Editor = ({ action, value, status, titlebar }) => {
       <TextArea
         value={value ? value : placeholder}
         onChange={(e) => action(e.target.value)}
+        id="editor"
       />
     </EditorBox>
   );

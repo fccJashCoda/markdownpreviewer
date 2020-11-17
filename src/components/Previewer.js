@@ -21,18 +21,42 @@ const PreviewerBox = styled.div`
 
 const ContentBox = styled.div`
   background: #fff;
-  background: #333;
   border: 1px solid #ccc;
   border-top: none;
   padding: 0.5em;
-  color: #fff;
+
+  & code {
+    display: inline-block;
+    background: #282c34;
+    color: orange;
+  }
+
+  & pre {
+    padding: 0.5em;
+    background: #282c34;
+    border-radius: 10px;
+  }
+
+  & table {
+    border-collapse: collapse;
+  }
+
+  & th,
+  td,
+  tr {
+    border: 2px solid #000;
+    padding: 0 5px;
+  }
 `;
 
 const Previewer = ({ markdown, status, titlebar }) => {
   return (
     <PreviewerBox display={status.editorHighlighted}>
       {titlebar}
-      <ContentBox dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+      <ContentBox
+        dangerouslySetInnerHTML={{ __html: marked(markdown) }}
+        id="preview"
+      />
     </PreviewerBox>
   );
 };

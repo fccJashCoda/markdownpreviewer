@@ -6,7 +6,8 @@ import TitleBar from './TitleBar';
 
 const MarkdownPreview = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 1em;
   padding: 2em;
   @media (max-width: 1475px) {
     flex-direction: column;
@@ -53,6 +54,8 @@ const MarkdownPreviewer = () => {
   const onChange = (input) => {
     setMarkdown(input);
   };
+
+  console.log(applicationState.test);
 
   return (
     <div>
