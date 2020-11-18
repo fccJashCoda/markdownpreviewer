@@ -29,6 +29,10 @@ const ContentBox = styled.div`
     display: inline-block;
     background: #282c34;
     color: orange;
+
+    @media (max-width: 400px) {
+      font-size: 0.8em;
+    }
   }
 
   & pre {

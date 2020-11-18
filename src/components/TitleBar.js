@@ -5,8 +5,6 @@ const TitleBarStyle = styled.div`
   justify-content: space-between;
   height: 1.5em;
   background: #f0f0f0;
-  border: 1px solid #000;
-  border-bottom: none;
 `;
 
 const Title = styled.h4`

@@ -2,47 +2,47 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 
 const placeholder = `
-# Welcome to my React Markdown Previewer!
+# To my React Markdown Previewer, welcome, you are!
 
-## This is a sub-heading...
-### And here's some other cool stuff:
-
-Heres some code, \`<div></div>\`, between 2 backticks.
+## A sub-heading, this is...
+### And some other cool stuff, here is:
 
 \`\`\`
-// this is multi-line code:
+// A comment in a function, this is.
 
-function anotherExample(firstLine, lastLine) {
-  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
-    return multiLineCode;
+function checkPosition(position) {
+  if (position === 'high ground') {
+    return 'It\\\'s over Anakin';
   }
 }
 \`\`\`
 
-You can also make text **bold**... whoa!
-Or _italic_.
-Or... wait for it... **_both!_**
-And feel free to go crazy ~~crossing stuff out~~.
+Making text **bold** in this one too, you can!
+And _italic_.
+Or **_both!_**
+And to ~~cross stuff out~~, free, you are.
 
-There's also [links](https://www.freecodecamp.com), and
+[Links](https://www.freecodecamp.com), and
 > Block Quotes!
 
-And if you want to get really crazy, even tables:
+we have.
+
+And if to get really crazy, you want, even tables:
 
 Wild Header | Crazy Header | Another Header?
 ------------ | ------------- | -------------
 Your content can | be here, and it | can be here....
 And here. | Okay. | I think we get it.
 
-- And of course there are lists.
-  - Some are bulleted.
+- And of course, lists, there are.
+  - Bulleted, some are.
      - With different indentation levels.
-        - That look like this.
+        - That looking like this one, they do.
 
 
-1. And there are numbererd lists too.
-1. Use just 1s if you want!
-1. And last but not least, let's not forget embedded images:
+1. Numbererd lists too, there are.
+1. Or if to use just 1s ,you want!
+1. And last but not least, forgetting embedded images, let us not:
 
 ![FreeCodeCamp Logo](https://en.wikipedia.org/wiki/FreeCodeCamp#/media/File:FreeCodeCamp_logo.png)
 `;
@@ -56,7 +56,7 @@ const EditorBox = styled.div`
   @media (max-width: 700px) {
     margin-top: 0;
     min-width: 90%;
-    width: auto;
+    width: 100%;
   }
 `;
 

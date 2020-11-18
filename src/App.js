@@ -4,9 +4,12 @@ import MarkdownPreviewer from './components/MarkdownPreviewer';
 import styled from 'styled-components';
 
 const Application = styled.div`
-  background: #1b1b32;
   height: 100vh;
-  // height: 100%;
+  @media (min-width: 1475px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 function App() {
