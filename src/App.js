@@ -8,6 +8,8 @@ const Application = styled.div`
   @media (min-width: 1475px) {
     display: flex;
     justify-content: center;
+  }
+  @media (min-height: 1050px) {
     align-items: center;
   }
 `;
