@@ -5,7 +5,7 @@ const placeholder = `
 # To my React Markdown Previewer, welcome, you are!
 
 ## A sub-heading, this is...
-### And some other cool stuff, here is:
+### And some other cool stuff,\`<div></div>\`, here is:
 
 \`\`\`
 // A comment in a function, this is.
