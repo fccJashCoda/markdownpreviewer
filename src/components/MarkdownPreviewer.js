@@ -64,8 +64,6 @@ const MarkdownPreviewer = () => {
           action={onChange}
           value={markdown}
           status={applicationState}
-          color={true}
-          display="none"
           titlebar={EditorTitleBar}
         />
         <Previewer
